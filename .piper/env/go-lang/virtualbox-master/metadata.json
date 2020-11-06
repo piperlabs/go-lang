@@ -1,0 +1,9 @@
+{
+    "id": {
+        "version": "master",
+        "origin": "https://github.com/piperlabs/virtualbox.git"
+    },
+    "ports": null,
+    "provider": null,
+    "system": null
+}

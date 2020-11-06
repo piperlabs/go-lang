@@ -1,0 +1,16 @@
+{
+    "actions": [
+        {
+            "Shell": {
+                "cmds": [
+                    "rm -f /etc/localtime && ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime"
+                ]
+            },
+            "phase": "shell"
+        }
+    ],
+    "async": false,
+    "container": {
+        "create": true
+    }
+}

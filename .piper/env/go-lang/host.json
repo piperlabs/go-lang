@@ -1,0 +1,16 @@
+{
+    "user": "centos",
+    "system": {
+        "version": "7.8",
+        "origin": "https://github.com/piperlabs/centos.git"
+    },
+    "products": [
+        {
+            "origin": "/home/eric/tmp/products/go-lang"
+        }
+    ],
+    "provider": {
+        "version": "master",
+        "origin": "https://github.com/piperlabs/virtualbox.git"
+    }
+}

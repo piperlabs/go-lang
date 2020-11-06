@@ -1,0 +1,18 @@
+{
+    "actions": [
+        {
+            "order": {
+                "phase": "shell"
+            },
+            "shell": {
+                "cmds": [
+                    "hostnamectl set-hostname {{ .host.name }}"
+                ]
+            }
+        }
+    ],
+    "async": false,
+    "container": {
+        "create": true
+    }
+}

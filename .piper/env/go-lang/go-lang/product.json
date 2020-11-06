@@ -1,0 +1,14 @@
+{
+    "installDir": "/opt",
+    "piper": {
+        "full": "",
+        "major": "",
+        "minor": "",
+        "name": "go-lang",
+        "origin": "/home/eric/tmp/products/go-lang",
+        "patch": "",
+        "tmp": "/tmp/piperTmp",
+        "version": ""
+    },
+    "version": "1.15.3"
+}

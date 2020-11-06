@@ -1,0 +1,63 @@
+{
+    "actions": [
+        {
+            "Url": {
+                "after": {
+                    "cmds": [
+                        "{{ .templates }}/install.sh"
+                    ]
+                },
+                "from": {
+                    "location": "https://download.virtualbox.org/virtualbox/{{ .product.version }}/VBoxGuestAdditions_{{ .product.version }}.iso"
+                },
+                "to": "/tmp"
+            },
+            "phase": "dependency"
+        },
+        {
+            "Url": {
+                "after": {
+                    "cmds": [
+                        "chmod u+x /opt/piper/guest && /opt/piper/guest provision abcdefgh s"
+                    ]
+                },
+                "from": {
+                    "location": "https://s3.eu-west-3.amazonaws.com/xbee.repository/providers/linux_amd64/guest.tar.gz"
+                },
+                "to": "/opt/piper",
+                "unpack": true
+            },
+            "phase": "dependency"
+        },
+        {
+            "Shell": {
+                "cmds": [
+                    "{{ .templates }}/network_centos.sh"
+                ]
+            },
+            "labels": {
+                "osid": [
+                    "centos"
+                ]
+            },
+            "phase": "shell"
+        },
+        {
+            "Shell": {
+                "cmds": [
+                    "{{ .templates }}/network_ubuntu.sh"
+                ]
+            },
+            "labels": {
+                "osid": [
+                    "ubuntu"
+                ]
+            },
+            "phase": "shell"
+        }
+    ],
+    "async": false,
+    "container": {
+        "create": true
+    }
+}

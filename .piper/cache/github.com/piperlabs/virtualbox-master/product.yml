@@ -1,0 +1,30 @@
+schema-version: 1.0
+
+var:
+  version:
+  ifname: eth1
+  memory: 512
+  cpus: 1
+  ova:
+
+const:
+  alphabet: abcdefgh #used for device mapping. first volume is map to b, second to c ...
+  prefix: s #used for device mapping -> /dev/sd[x]
+
+
+provision:
+  - url:
+      from: https://download.virtualbox.org/virtualbox/{{ .product.version }}/VBoxGuestAdditions_{{ .product.version }}.iso
+      to: /tmp
+      unpack: false
+      after: "{{ .templates }}/install.sh"
+  - url:
+      from: https://s3.eu-west-3.amazonaws.com/xbee.repository/providers/linux_amd64/guest.tar.gz
+      to: /opt/piper
+      after: chmod u+x /opt/piper/guest && /opt/piper/guest provision {% alphabet %} {% prefix %}
+
+
+
+up:
+  - shell: /opt/piper/guest mount {% alphabet %} {% prefix %}
+
